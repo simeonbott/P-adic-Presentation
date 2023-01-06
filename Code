@@ -5,17 +5,20 @@
 #accuracy, the length of numbers to show on screen.
 #power, the rate of increase in size of the numbers in the sequence.
 #base, normally people use base = 10. This code only support values between 2 and 10.
+
 import numpy as np
 import random
 import math
 from tabulate import tabulate
 import matplotlib as plt
 import matplotlib.pyplot as plt
-power = 6
-base = 6
-accuracy = 100
-depth = 100
-starting_value = 15
+
+#Input Variables
+power = 10
+base = 10
+accuracy = 40
+depth = 40
+starting_value = 18
 
 answer = ["none"] * (depth)
 answer_length = ["none"] * (depth)
