@@ -5,20 +5,22 @@
 #accuracy, the length of numbers to show on screen.
 #power, the rate of increase in size of the numbers in the sequence.
 #base, normally people use base = 10. This code only support values between 2 and 10.
-
 import numpy as np
 import random
 import math
 from tabulate import tabulate
 import matplotlib as plt
 import matplotlib.pyplot as plt
-
-#Input Variables
 power = 10
 base = 10
 accuracy = 40
-depth = 40
+depth =40
 starting_value = 18
+alpha = []
+for i in range(10):
+    alpha.append(str(i))
+for i in range(26):
+    alpha.append(chr(i+65))
 
 answer = ["none"] * (depth)
 answer_length = ["none"] * (depth)
@@ -33,12 +35,12 @@ for i in range(1,depth):
     answer_length[i] = math.floor(1 + math.log(starting_value, base)*power**i)
     
 #base converter.
-if base < 10:
+if base != 10:
     for i in range(depth):
         converted = []
         number = answer[i]
         while number > 0:
-            converted.append(str(number % base))
+            converted.append(alpha[(number % base)])
             number //= base
         converted.reverse()
         answer[i] = "".join(converted)
@@ -51,7 +53,7 @@ image = np.zeros(accuracy*depth)
 
 for i in range(depth):
     for j in range(len(answer[i])):
-        image[accuracy*i + j + accuracy - len(answer[i])] = answer[i][j]
+        image[accuracy*i + j + accuracy - len(answer[i])] = alpha.index(answer[i][j])
 image = image.reshape((depth, accuracy))
 plt.matshow(image)
 plt.show()
@@ -66,4 +68,4 @@ for i in  range(depth):
         z = "" 
     table[i] = [answer_length[i], "", str(starting_value) + "^(" + str(power) + "^" + str(i) + ")", "=", z, answer[i]]
 col_names = ["length (number of digits)", "", "number", "", "", "value (base " + str(base) + ")"]
-print(tabulate(table, headers=col_names, colalign=("right")))
+print(tabulate(table, headers=col_names, stralign="right"))
