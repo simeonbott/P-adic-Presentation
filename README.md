@@ -1,6 +1,6 @@
 # P-adic-Presentation
 Python code to demonstrate the existence of p-adic numbers
-Inspired by the video demonstration in: https://www.youtube.com/watch?v=3gyHKCDq1YA&t=532s
+Inspired by the video demonstration in: https://www.youtube.com/watch?v=3gyHKCDq1YA&
 
 The code is setup so that a user may experiment with different inputs to look for patterns in the way a sequence of increasing powers evolves.
 
